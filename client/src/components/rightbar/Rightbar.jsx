@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './rightbar.css'
 import { AuthContext } from '../../context/AuthContext'
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../../axiosInstance';
 
 function Rightbar() {
 
@@ -15,7 +16,7 @@ function Rightbar() {
 
     const fetchSuggestions = async () => {
       try {
-        const response = await axios.get(`/users/suggestMutualFriends/${user._id}`);
+        const response = await axiosInstance.get(`/users/suggestMutualFriends/${user._id}`);
         if (response.data && response.data.firstFiveMutualFriends) {
           setSuggestions(response.data.firstFiveMutualFriends)
         }
@@ -36,7 +37,7 @@ function Rightbar() {
       setSuggestions(updatedSuggestions);
   
       // Make request to follow user
-      const response = await axios.put(`/users/${userId}/follow`, { userId: user._id });
+      const response = await axiosInstance.put(`/users/${userId}/follow`, { userId: user._id });
       console.log(response.data);
   
       // If server responds successfully, update state

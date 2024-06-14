@@ -126,7 +126,8 @@ import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../../axiosInstance';
 import { format } from 'timeago.js';
 import { AuthContext } from '../../context/AuthContext';
 import Comments from '../comments/Comments';
@@ -145,7 +146,7 @@ const Post = ({ post }) => {
 
   const likeHandler = () => {
     try {
-      axios.put(`/posts/${post._id}/like`, { userId: currUser._id });
+      axiosInstance.put(`/posts/${post._id}/like`, { userId: currUser._id });
     } catch (e) {
       console.error('Error liking post:', e);
     }
@@ -156,7 +157,7 @@ const Post = ({ post }) => {
   const commentHandler = async () => {
     try {
       setLoading(true);
-      await axios.post(`posts/comment/${post._id}`, { userId: user._id, text: newComment });
+      await axiosInstance.post(`posts/comment/${post._id}`, { userId: user._id, text: newComment });
       setNewComment('');
       setLoading(false);
     } catch (e) {
@@ -171,7 +172,7 @@ const Post = ({ post }) => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await axios.get(`/users/${post.userId}`);
+        const res = await axiosInstance.get(`/users/${post.userId}`);
         setUser(res.data);
       } catch (error) {
         console.error('Error fetching user:', error);

@@ -3,7 +3,8 @@ import "./editprofile.css"
 import Leftbar from '../../components/leftbar/Leftbar'
 import { AuthContext } from '../../context/AuthContext'
 import Uploadprofileimg from '../../components/uploadprofileimg/Uploadprofileimg'
-import axios from 'axios'
+// import axios from 'axios'
+import axiosInstance from '../../axiosInstance'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -33,7 +34,7 @@ const Editprofile = () => {
             desc: input,
         }
         try{
-            await axios.put(`/users/${user._id}`, updatedUser)
+            await axiosInstance.put(`/users/${user._id}`, updatedUser)
             dispatch({type: "UPDATE_DESC", payload: input})
             navigate(`/profile/${user.username}`)
             

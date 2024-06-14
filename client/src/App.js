@@ -6,7 +6,8 @@ import Register from "./pages/register/Register";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./context/AuthContext";
 import Editprofile from "./pages/editprofile/Editprofile";
-import axios from "axios";
+// import axios from "axios";
+import axiosInstance from "./axiosInstance";
 import Loading from "./components/loading/Loading";
 import Messenger from "./pages/messenger/Messenger";
 
@@ -15,14 +16,14 @@ function App() {
   const [res, setRes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const url = "http://localhost:8080/api/";
+  const url = "https://snapverse-proj-api.vercel.app/api/";
 
   useEffect(() => {
     
     const getPosts = async () => {
       if(user && user._id && res.length === 0){
         try {
-          const response = await axios.get(`${url}posts/feed/${user._id}`);
+          const response = await axiosInstance.get(`${url}posts/feed/${user._id}`);
           setRes(response.data);
           setLoading(false);
         } catch (error) {

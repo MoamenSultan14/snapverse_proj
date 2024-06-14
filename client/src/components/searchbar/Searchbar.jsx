@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import "./searchbar.css";
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../../axiosInstance';
 import Searchresults from '../searchbar/Searchresults';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -14,7 +15,7 @@ const Searchbar = ({ onClose }) => {
         try {
             if (value.trim() !== "") {
                 setLoading(true);
-                const res = await axios.get("/users/all", {
+                const res = await axiosInstance.get("/users/all", {
                     params: { username: value }
                 });
                 setResults(res.data);

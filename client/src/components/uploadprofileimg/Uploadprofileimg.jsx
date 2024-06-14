@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./uploadprofileimg.css"
-import axios from 'axios'
+// import axios from 'axios'
+import axiosInstance from '../../axiosInstance';
 import { AuthContext } from '../../context/AuthContext';
 
 const Uploadprofileimg = ({closePopUp}) => {
@@ -26,7 +27,7 @@ const Uploadprofileimg = ({closePopUp}) => {
         profileImg: base64Img
       };
       try{
-        await axios.put(`/users/${user._id}`, updatedUser)
+        await axiosInstance.put(`/users/${user._id}`, updatedUser)
         dispatch({type: "UPDATE_IMG", payload: base64Img})
         closePopUp()
         
@@ -41,7 +42,7 @@ const Uploadprofileimg = ({closePopUp}) => {
         profileImg: "",
       }
       try{
-        await axios.put(`/users/${user._id}`, updatedUser)
+        await axiosInstance.put(`/users/${user._id}`, updatedUser)
         dispatch({type: "UPDATE_IMG", payload: ""})
         closePopUp()
         

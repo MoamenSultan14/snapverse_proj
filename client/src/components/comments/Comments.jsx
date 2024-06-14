@@ -6,7 +6,8 @@ import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteIcon from '@mui/icons-material/Delete';
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../../axiosInstance';
 import { format } from 'timeago.js';
 import { AuthContext } from '../../context/AuthContext';
 import io from 'socket.io-client';
@@ -28,7 +29,7 @@ const Comments = ({ post, closeViewComments, isLiked, like, likeHandler }) => {
     useEffect(() => {
         const getUser = async () => {
             try {
-                const user = await axios.get(`/users/${post.userId}`);
+                const user = await axiosInstance.get(`/users/${post.userId}`);
                 setPostUploader(user.data);
             } catch (error) {
                 console.error(error);
@@ -41,7 +42,7 @@ const Comments = ({ post, closeViewComments, isLiked, like, likeHandler }) => {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const response = await axios.get(`posts/comments/${post._id}`);
+                const response = await axiosInstance.get(`posts/comments/${post._id}`);
                 setComments(response.data);
                 setLoading(false)
             } catch (error) {
@@ -62,7 +63,7 @@ const Comments = ({ post, closeViewComments, isLiked, like, likeHandler }) => {
     const handlePostComment = async () => {
         try {
             setLoading(true)
-            const updatedPost = await axios.post(`posts/comment/${post._id}`, { userId: user._id, text: newComment });
+            const updatedPost = await axiosInstance.post(`posts/comment/${post._id}`, { userId: user._id, text: newComment });
             setNewComment('');
             const updatedComments = updatedPost.data.comments;
             // setComments(updatedComments)
@@ -76,7 +77,7 @@ const Comments = ({ post, closeViewComments, isLiked, like, likeHandler }) => {
 
     const handleLikeDislikeComment = async (commentId) => {
         try {
-            const response = await axios.put(`posts/${post._id}/comments/${commentId}/like`, { userId: user._id });
+            const response = await axiosInstance.put(`posts/${post._id}/comments/${commentId}/like`, { userId: user._id });
             const updatedComments = comments.map(comment => {
                 if (comment._id === commentId) {
                     return {
@@ -96,7 +97,7 @@ const Comments = ({ post, closeViewComments, isLiked, like, likeHandler }) => {
     const handleDeleteComment = async (commentId) => {
         try {
             setLoading(true)
-            await axios.delete(`/posts/commentDelete/${post._id}/${commentId}?userId=${user._id}`, { userId: user._id});
+            await axiosInstance.delete(`/posts/commentDelete/${post._id}/${commentId}?userId=${user._id}`, { userId: user._id});
             const updatedComments = comments.filter(comment => comment._id !== commentId);
             // setComments(updatedComments);
             socket.emit('comment', updatedComments);

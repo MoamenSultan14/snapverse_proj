@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './conversation.css'
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../../axiosInstance';
 
 const Conversation = ({conversation, currentUser }) => {
 
@@ -11,7 +12,7 @@ const Conversation = ({conversation, currentUser }) => {
     const otherUser = conversation.members.find(m => m._id !== currentUser._id)
 
     const getUser = async () =>{
-      const res = await axios.get('/users?userId=' + otherUser._id)
+      const res = await axiosInstance.get('/users?userId=' + otherUser._id)
       setUser(res.data)
     }
     getUser()

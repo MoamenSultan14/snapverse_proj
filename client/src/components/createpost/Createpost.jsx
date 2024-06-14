@@ -1,7 +1,8 @@
 import { useContext , useState } from "react";
 import "./createpost.css"
 import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
-import axios from "axios"
+// import axios from "axios"
+import axiosInstance from "../../axiosInstance";
 import { AuthContext } from "../../context/AuthContext";
 
 function Createpost({ onClose }) {
@@ -32,7 +33,7 @@ function Createpost({ onClose }) {
 
     async function uploadImage() {
 
-        await axios.post("/posts/", {
+        await axiosInstance.post("/posts/", {
             userId: user._id,
             img: file,
             desc: desc

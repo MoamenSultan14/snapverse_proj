@@ -59,7 +59,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './userprofile.css';
 import SettingsIcon from '@mui/icons-material/Settings';
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../../axiosInstance';
 import { useParams } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
@@ -78,7 +79,7 @@ function Userprofile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userResponse = await axios.get(`/users?username=${username}`);
+        const userResponse = await axiosInstance.get(`/users?username=${username}`);
         setUser(userResponse.data);
         setFollowed(currUser.followings.includes(userResponse.data._id));
       } catch (error) {
@@ -89,7 +90,7 @@ function Userprofile() {
     const fetchUserPosts = async () => {
       try {
         setLoading(true); 
-        const postsResponse = await axios.get(`/posts/profile/${username}`);
+        const postsResponse = await axiosInstance.get(`/posts/profile/${username}`);
         setUserPosts(postsResponse.data);
         setLoading(false); 
       } catch (error) {
@@ -126,10 +127,10 @@ function Userprofile() {
   const handleClick = async () =>{
     try{
       if(followed){
-        await axios.put(`/users/${user._id}/unfollow`, {userId:currUser._id})
+        await axiosInstance.put(`/users/${user._id}/unfollow`, {userId:currUser._id})
         dispatch({type:"UNFOLLOW", payload:user._id})
       }else{
-        await axios.put(`/users/${user._id}/follow`, {userId:currUser._id})
+        await axiosInstance.put(`/users/${user._id}/follow`, {userId:currUser._id})
         dispatch({type:"FOLLOW", payload:user._id})
       }
       setFollowed(!followed)

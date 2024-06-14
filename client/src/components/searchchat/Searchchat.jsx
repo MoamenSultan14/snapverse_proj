@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import './searchchat.css';
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../../axiosInstance';
 import Searchchatres from '../searchchat/Searchchatres';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -14,7 +15,7 @@ const Searchchat = ({ onClose, currentUser, input, conversations, setConversatio
         const fetchFollowings = async () => {
             try {
                 setLoading(true);
-                const res = await axios.get(`/users/${currentUser._id}/followings`);
+                const res = await axiosInstance.get(`/users/${currentUser._id}/followings`);
                 setFollowings(res.data);
                 setLoading(false);
             } catch (e) {
@@ -57,7 +58,7 @@ const Searchchat = ({ onClose, currentUser, input, conversations, setConversatio
             } else {
                 // Create a new conversation
                 const members = [currentUser._id, result._id];
-                const res = await axios.post('/conversations', { members });
+                const res = await axiosInstance.post('/conversations', { members });
     
                 console.log('New conversation created:', res.data);
     

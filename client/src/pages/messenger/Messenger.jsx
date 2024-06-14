@@ -6,7 +6,8 @@ import Conversation from '../../components/conversation/Conversation';
 import Message from '../../components/message/Message';
 import { AuthContext } from '../../context/AuthContext';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../../axiosInstance';
 import io from 'socket.io-client';
 import Searchchat from '../../components/searchchat/Searchchat';
 import Loadingline from '../../components/loadingline/Loadingline';
@@ -31,7 +32,7 @@ const Messenger = () => {
     const PF = process.env.REACT_APP_PUBLIC_FLDER;
 
     useEffect(() => {
-        socket.current = io('http://localhost:8080', { transports: ['websocket'] });
+        socket.current = io('https://snapverse-proj-api.vercel.app', { transports: ['websocket'] });
 
         socket.current.on("getMessage", data => {
             setArrivalMessage(data);
@@ -57,7 +58,7 @@ const Messenger = () => {
         const getConversations = async () => {
             try {
                 setLoading(true)
-                const res = await axios.get('/conversations/' + user._id);
+                const res = await axiosInstance.get('/conversations/' + user._id);
                 setConversations(res.data);
                 setLoading(false)
             } catch (e) {
@@ -71,7 +72,7 @@ const Messenger = () => {
     useEffect(() => {
         const getMessages = async () => {
             try {
-                const res = await axios.get('/messages/' + currConversation?._id);
+                const res = await axiosInstance.get('/messages/' + currConversation?._id);
                 setMessages(res.data);
             } catch (e) {
                 console.log(e);
