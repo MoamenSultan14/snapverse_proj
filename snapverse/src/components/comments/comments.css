@@ -1,0 +1,225 @@
+.commentsContainer{
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width:100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.commentsWrapper{
+    display: flex;
+    width: 70%;
+    height: 95%;
+    background-color: white;
+}
+
+.closeIcon{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.commentsLeft,
+.commentsRight{
+    width: 50%;
+    height: 100%;
+}
+.commentsRight{
+    display: flex;
+    flex-direction: column;
+}
+
+.commentsRight img,
+.commentsRight svg {
+  cursor: pointer;
+}
+
+.commentsUploadedPost{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.commentsTopRight{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid lightgray;
+    height: 4rem;
+}
+
+.commentsUploadedUsername{
+    font-weight: 600;
+    cursor: pointer;
+}
+.commentsContent{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.uploadedComments{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    height: 30rem; 
+}
+
+
+.uploadedCommentsList{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+
+.uploadedComment{
+    display: flex;
+}
+
+.uploadedCommentLeft{
+    display: flex;
+}
+
+
+.uploadedCommentRight{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.uploadedCommentContent-Info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.uploadedCommentInfo{
+    display: flex;
+    margin: 0.4rem 0;
+}
+
+.uploadedCommentInfo span{
+    margin-right: 7px; 
+}
+
+.commentUploaderProfileImg{
+    margin-right: 0.6rem;
+}
+
+.commentUploaderUsername{
+    font-weight: 600;
+    margin-right: 0.2rem;
+    cursor: pointer;
+}
+
+
+.commentUploaderUsername, .commentText {
+    display: inline;
+}
+
+.commentText{
+    word-break: break-word;
+}
+
+.commentTimestamp, .commentLikesCounter {
+    color: gray;
+    font-size: 14px;
+}
+
+.commentLikesCounter{
+    font-weight: 500;
+}
+
+.commentsUploaderProfile{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.4rem;
+}
+
+.commentUploaderProfileImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.postInteraction{
+    display: flex;
+    width: 100%;
+    padding: 0.5rem;
+    border-top: 1px solid lightgray;
+}
+.postInteraction svg{
+    margin-right: 7px; /* Adjust as needed */
+}
+
+.postInteractionSummary{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    border-bottom: 1px solid lightgray;
+}
+
+.postLikesCounter{
+    font-weight: 600;
+}
+
+.postTimestamp{
+    color: gray;
+    font-size: 14px;
+}
+
+.postCommentarea{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.postTextareaInput{
+    width: 90%;
+    height: 1rem;
+    overflow-y: scroll;
+    /* overflow: hidden; */
+    resize: none; /* Prevent resizing */
+    border: none;
+}
+
+.postTextareaInput:focus{
+    outline: none;
+}
+
+.postTextareaInputUpload{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(62, 176, 247);
+    cursor: pointer;
+}
+
+.Textareadisabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.deleteCommentIcon {
+    visibility: hidden;
+}
+
+.uploadedComment:hover .deleteCommentIcon {
+    visibility: visible;
+}
+

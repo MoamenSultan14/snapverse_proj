@@ -1,0 +1,36 @@
+.conversation{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.conversation:hover{
+    background-color: rgb(250, 250, 250);
+}
+
+
+.conversationImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.conversationUsername{
+    font-weight: 300;
+}
+
+
+/* @media */
+@media only screen and (max-width: 900px) {
+    
+    .conversationUsername {
+        display: none;
+    }
+    .conversationImg{
+        margin-right: 0;
+    }
+
+}

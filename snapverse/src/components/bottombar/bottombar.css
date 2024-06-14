@@ -1,0 +1,23 @@
+.bottombarContainer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: max-content;
+    background-color: white;
+    overflow: hidden;
+}
+
+.bottombarWrapper{
+    margin: 0.5rem 0;
+}
+
+.bottombarOptions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottombarProfileImg{
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+}

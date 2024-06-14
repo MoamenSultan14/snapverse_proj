@@ -1,0 +1,77 @@
+.imgUpoadContaier{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.imgUploadWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 20px;
+    height: 11rem;
+    width: 25rem;
+    background-color: white;
+    overflow: hidden;
+}
+
+.imgUploadTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.uploadProfileImgFile,
+.uploadProfileImgRemove,
+.uploadProfileImgCancel{
+    width: 100%; 
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    height: 41px;
+    padding: 0.8rem 0;
+    background-color: white;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.uploadProfileImgFile{
+    color: rgb(62, 176, 247);
+
+}
+
+.uploadProfileImgRemove{
+    color: red;
+}
+
+.uploadProfileImgCancel,
+.uploadProfileImgRemove{
+    border: none;
+    border-bottom: 1px solid lightgray;
+}
+
+.no-cancel-button{
+    height: 9rem;
+}
+
+
+@media only screen and (max-width: 500px ){
+    .imgUploadWrapper{
+        width: 80%;
+    }
+}
+
+

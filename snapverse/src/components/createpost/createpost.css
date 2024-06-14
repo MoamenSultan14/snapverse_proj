@@ -1,0 +1,83 @@
+.popupContaier{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.popupWrapper{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    width: 30rem;
+    height: 33rem;
+}
+
+.popupTop{
+    display:flex;
+    justify-content: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid gray;
+}
+
+.popupContent{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.uploadImg{
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgb(8, 155, 246);
+    padding: 0.5rem;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.InputImg{
+    margin-top: 1rem;
+}
+
+.uploadedImg{
+    object-fit: cover;
+    height: 24rem;
+    width: 24rem;
+    border-radius: 4px;
+}
+
+.addDesc{
+    /* overflow-y: scroll; */
+    resize: none;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background-color: lightgrey;
+    border-radius: 10px;
+    border: none;
+    width: 70%;
+    height: 7%;
+}
+
+.addDesc:focus{
+    outline: none;
+}
+
+.submit{
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgb(198, 255, 198);
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+}

@@ -1,0 +1,70 @@
+.rightbarContainer{
+    width:30%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+
+}
+
+.rightbarWrapper{
+    padding: 10px;
+}
+
+.suggestingText{
+    font-size: 12px;
+    font-weight: 500;
+    color: gray;
+}
+.rightbarSuggestingList{
+    padding: 0;
+}
+
+.rightbarSuggesting{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0
+}
+
+.suggestedImg{
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+
+.suggestedContent{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.suggestedUsername{
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.suggestedInfo{
+    font-size: 12px;
+    color: gray;
+}
+
+.suggestedFollow{
+    font-size: 12px;
+    color: rgb(62, 176, 247);
+    cursor: pointer;
+}
+
+.rightbarCopyright{
+    font-size: 12px;
+    color: rgb(192, 192, 192);
+
+}
+
+@media only screen and (max-width: 1160px) {
+    .rightbarContainer{
+        display: none;
+    }
+}

@@ -1,0 +1,153 @@
+.userprofileContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: 100vh;
+    width: 80%;
+}
+
+.userprofileTop {
+    width: 100%;
+    margin-bottom: 2.7rem;
+    display: flex;
+    align-items: center;
+}
+
+.userprofileTopLeft {
+    width: 25rem;
+    margin-right: 1.8rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.userprofileImg {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userprofileTopRight {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.userprofileTopRight > * {
+    margin-bottom: 10px;
+}
+
+.userprofileTopRight > *:last-child {
+    margin-bottom: 0;
+}
+
+.userprofileControlPanel {
+    display: flex;
+    align-items: center;
+}
+
+.userprofileUsername {
+    margin-right: 2rem;
+}
+
+.userprofileEdit,
+.userprofileFollow {
+    margin-right: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+}
+
+.userprofileEdit:hover{
+    background-color: rgb(219, 219, 219);
+}
+
+.userprofileFollow{
+    color: white;
+    background-color: rgb(62, 176, 247);
+}
+
+.userprofileFollow:hover{
+    background-color: rgb(8, 155, 246);
+
+}
+
+.userprofileStats {
+    display: flex;
+}
+
+.userprofileStats > * {
+    margin-right: 2rem; 
+}
+
+.userprofileStats > *:last-child {
+    margin-right: 0; 
+}
+
+.userprofileHr {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.userprofilePosts {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 0.3rem;
+}
+
+.userprofilePostImg {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+}
+
+@media (max-width: 737px) {
+    .userprofileContainer{
+        width: 100%;
+    }
+    .userprofileTop {
+        position: relative;
+      }
+      .userprofileTopLeft{
+        justify-content: start;
+        width: auto;
+      }
+      .userprofileImg{
+        height: 8rem;
+        width: 8rem;
+      }
+      
+      .userprofileStats {
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+        padding: 1rem 0;
+        position: absolute;
+        justify-content: space-around;
+        align-items: center;
+        top: calc(100% + 2rem);
+        left: 0;
+        width: 100%;
+      }
+      .userprofileStats > * {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .userprofileHr{
+        display: none;
+      }
+
+      .userprofilePosts{
+        margin-top: 5rem;
+      }
+      .userprofileTopRight{
+        top: 0;
+      }
+      .userprofileTopLeft{
+        top: 0;
+      }
+}

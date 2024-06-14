@@ -1,0 +1,25 @@
+.profilestatsContainer {
+    display: flex;
+}
+
+.profilestatsContainer > * {
+    margin-right: 2rem;
+}
+
+.profilestatsContainer > *:last-child {
+    margin-right: 0; 
+}
+
+@media (max-width: 737px) {
+    .profilestatsContainer {
+        border-top: 1px solid gray;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+      }
+      .profilestatsContainer > * {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+  }

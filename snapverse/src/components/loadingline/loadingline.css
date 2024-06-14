@@ -1,0 +1,20 @@
+.loadingline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; 
+    background-color: #007bff; 
+    z-index: 9999; 
+    transition: width 0.5s ease; 
+  }
+
+@keyframes colorAnimation {
+    0% { background-color: #007bff; } 
+    50% { background-color: #ff6347; }
+    100% { background-color: #007bff; } 
+}
+
+.loadingline.color-animation {
+    animation: colorAnimation 2s infinite;
+}

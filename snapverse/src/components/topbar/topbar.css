@@ -1,0 +1,53 @@
+.topbarContainer{
+    z-index: 1;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    top: 0;
+    border-bottom: 1px solid gray;
+}
+
+.topbarWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.topbarRight{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem;
+    width: 50%;
+}
+
+.topbarIcon{
+    margin-left: 1rem;
+}
+
+.topbarLeft{
+    padding: 1rem;
+}
+
+.material-size.md-36 { font-size: 30px; }
+
+.topbarSearch{
+    font-family: 'Roboto', sans-serif;
+    width: 65%;
+    border-radius: 6px;
+    border: none;
+    padding: 0.6rem;
+    background-color: rgb(241, 241, 241);
+}
+
+.topbarLogo{
+    font-size: 1.5rem;
+    font-family: 'Lobster', sans-serif;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 767px ){
+    .topbarContainer{
+        display: none;
+    }
+}

@@ -1,0 +1,166 @@
+
+input[type="text"] {
+    padding: 0; 
+    border: none;
+}
+
+.postContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+}
+
+.postWrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.postTop{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.postProfileImg{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.postUsername{
+    font-weight: 600;
+    font-size: 15px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+.postDot{
+    font-size: 5px;
+    margin: 0 2px;
+    color: gray;
+
+}
+.postUploadTime{
+    color: gray;
+}
+
+.postMid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+.postImgContainer{
+    width: 100%;
+}
+
+
+.postImgContainer img {
+    width: 470px;
+    border-radius: 3px;
+    object-fit: cover;
+    height: 585px;
+}
+
+.postMidContent {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.postMidLeft {
+    display: flex;
+}
+
+.postIcon{
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.postMidRight .postIcon {
+    margin-right: 0;
+}
+
+
+.postBottom{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.postBottom > * {
+    margin-top: 10px;
+}
+
+.postLikes{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.postBottomTop{
+    display: flex;
+}
+
+.postUsernameBottom{
+    margin-right: 5px;
+}
+
+.postDesc{
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    word-break: break-word;
+}
+
+.postReadMore{
+    cursor: pointer;
+    font-size: 14px;
+    color: gray;
+}
+
+.postViewComments{
+    display: block;
+    font-size: 15px;
+    color: gray;
+    cursor: pointer;
+}
+
+.postComments{
+    font-size: 15px; 
+}
+
+.postComments:focus{
+    outline: none;
+}
+
+.postComment{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.postTextareaInput{
+    width: 100%;
+    height: 1rem;
+    overflow-y: scroll;
+    resize: none;
+    border: none;
+}
+
+@media only screen and (max-width: 490px ){
+    .postContainer{
+        width: auto;
+    }
+    .postImgContainer img {
+        width: 100%;
+        height: auto;
+        max-height: 585px;
+    }
+}

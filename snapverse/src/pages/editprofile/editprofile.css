@@ -1,0 +1,155 @@
+.editprofileContainer{
+    display: flex;
+    height: 100vh;
+}
+.editprofileLeft{
+    width: 15rem;
+}
+.editprofileRight{
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.editprofileRight > * {
+    margin: 1rem 0;
+}
+
+.editprofileRight > *:last-child {
+    margin-bottom: 0; 
+}
+
+
+/* content */
+.editprofileTitle{
+    width: 50%;
+    font-size: 20px;
+    font-weight:800;
+    padding: 0.8rem 0;
+    margin-bottom: 1rem;
+}
+
+.editprofilePhoto{
+    background-color: rgb(230, 230, 230);
+    padding: 1rem;
+    border-radius: 20px;
+    width: 50%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftContent{
+    display: flex;
+    align-items: center;
+}
+
+.profileImg{
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.changePhotoBtn,
+.editProfileSubmitBtn{
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(62, 176, 247);
+}
+
+.changePhotoBtn:hover{
+    background-color: rgb(8, 155, 246);
+
+}
+
+.editProfileBio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.editporfileInputLabels{
+    width: 100%;
+    font-size: 20px;
+    font-weight:800
+}
+
+.editprofileBioInput{
+    display: flex;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+
+.profileBio{
+    width: 80%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow: hidden;
+    resize: none;
+    border: none;
+    font-size: 15px;
+}
+
+.profileBio::placeholder {
+    color: lightgray;
+}
+
+.profileBio:focus{
+    outline: none;
+}
+
+.bioCounter{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    bottom: 0;
+}
+
+.textAllowedLength{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: relative;
+    font-Size: 12px;
+    color: gray;
+}
+
+.editProfileSubmit{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.editProfileSubmitBtn{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+/* content */
+
+@media only screen and (max-width: 1264px) {
+    .editprofileLeft{
+        width: 4rem;
+    }
+}
+
+@media only screen and (max-width: 767px ){
+    .editprofileRight{
+        margin-top: 5rem;
+    }
+    .editprofileLeft{
+        width: 0;
+    }
+}
