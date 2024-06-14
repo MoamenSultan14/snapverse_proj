@@ -16,13 +16,13 @@ const userRoute = require("./routes/users");
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
 
-app.use(cors(
-    {
-        origin: ["https://snapverse-proj-client.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
+const corsOptions = {
+    origin: 'https://snapverse-proj-client.vercel.app',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+  };
+  
+app.use(cors(corsOptions));
 
 // Middleware
 app.use(express.json({ limit: "50mb" }));
