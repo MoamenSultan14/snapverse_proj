@@ -9,12 +9,20 @@ const io = new Server(server, {
     maxHttpBufferSize: 1e8 // 100 MB payload size limit
 });
 const mongoose = require("mongoose");
+const cors = require('cors')
 const postRoute = require("./routes/posts");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
 
+app.use(cors(
+    {
+        origin: ["https://snapverse-proj-client.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 
 // Middleware
 app.use(express.json({ limit: "50mb" }));
@@ -98,7 +106,7 @@ io.on('connection', (socket) => {
         if (user) {
 
             try {
-                const response = await axios.post('http://localhost:8080/api/routes/messages/', {
+                const response = await axios.post('https://snapverse-proj-api.vercel.app/api/routes/messages/', {
                     conversationId: conversationId,
                     sender: senderId,
                     recipient: receiverId,
@@ -112,7 +120,7 @@ io.on('connection', (socket) => {
             }
         } else {
             try {
-                const response = await axios.post('http://localhost:8080/api/routes/messages/', {
+                const response = await axios.post('https://snapverse-proj-api.vercel.app/api/routes/messages/', {
                     conversationId: conversationId,
                     sender: senderId,
                     recipient: receiverId,
