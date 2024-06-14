@@ -184,7 +184,7 @@ const messageRoute = require("./routes/messages");
 
 const corsOptions = {
     // origin: 'https://snapverse-proj-client-oe0nars2j-moamensultan14s-projects.vercel.app',
-    origin: 'https://snapverse-proj-client-oe0nars2j-moamensult',
+    origin: 'https://snapverse-proj-client-jayvrxwzp-moamensultan14s-projects.vercel.app',
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'], // Add Authorization header if needed
 };
