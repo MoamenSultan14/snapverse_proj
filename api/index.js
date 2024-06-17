@@ -165,7 +165,7 @@ const messageRoute = require("./routes/messages");
 
 const corsOptions = {
     origin: 'https://snapverse-proj-client.onrender.com',
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'], 
 };
 
