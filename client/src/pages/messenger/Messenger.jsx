@@ -32,7 +32,7 @@ const Messenger = () => {
     const PF = process.env.REACT_APP_PUBLIC_FLDER;
 
     useEffect(() => {
-        socket.current = io('https://snapverse-proj-api.vercel.app', { transports: ['websocket'] });
+        socket.current = io('https://snapverse-proj-api.onrender.com', { transports: ['websocket'] });
 
         socket.current.on("getMessage", data => {
             setArrivalMessage(data);

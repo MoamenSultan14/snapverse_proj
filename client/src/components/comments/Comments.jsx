@@ -15,7 +15,7 @@ import Loadingline from '../loadingline/Loadingline';
 import { Link } from 'react-router-dom';
 
 
-const socket = io('https://snapverse-proj-api.vercel.app', { transports : ['websocket'] });
+const socket = io('https://snapverse-proj-api.onrender.com', { transports : ['websocket'] });
 
 
 const Comments = ({ post, closeViewComments, isLiked, like, likeHandler }) => {
