@@ -103,26 +103,6 @@ function Userprofile() {
     fetchUserPosts();
   }, [username, currUser]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setLoading(true); 
-  //       const [userResponse, postsResponse] = await Promise.all([
-  //         axios.get(`/users?username=${username}`),
-  //         axios.get(`/posts/profile/${username}`)
-  //       ]);
-  //       setUser(userResponse.data);
-  //       setUserPosts(postsResponse.data);
-  //       setLoading(false); 
-  //       setFollowed(currUser.followings.includes(userResponse.data._id));
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [username, currUser]);
 
   const handleClick = async () =>{
     try{
