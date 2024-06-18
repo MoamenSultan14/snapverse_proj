@@ -15,6 +15,7 @@
     display: flex;
     width: 70%;
     height: 95%;
+    max-height: 670.700px;
     background-color: white;
 }
 
@@ -50,7 +51,7 @@
 .commentsTopRight{
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: 0 0.5rem;
     border-bottom: 1px solid lightgray;
     height: 4rem;
 }
@@ -62,6 +63,7 @@
 .commentsContent{
     display: flex;
     flex-direction: column;
+    height: calc(100% - 4rem)
 }
 
 
@@ -222,4 +224,5 @@
 .uploadedComment:hover .deleteCommentIcon {
     visibility: visible;
 }
+
 

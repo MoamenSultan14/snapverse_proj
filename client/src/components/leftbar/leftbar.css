@@ -132,7 +132,7 @@
 
 }
 
-@media only screen and (max-height: 700px ) {
+@media only screen and (max-height: 640px ) {
     .leftbarItemThreads{
         display: none;
     }
