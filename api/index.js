@@ -238,7 +238,7 @@ io.on('connection', (socket) => {
 
         if (user) {
             try {
-                const response = await axios.post('https://snapverse-proj-api.onrender.com/api/routes/messages/', {
+                const response = await axios.post('https://snapverse-proj-api.onrender.com/api/messages/', {
                     conversationId: conversationId,
                     sender: senderId,
                     recipient: receiverId,
@@ -252,7 +252,7 @@ io.on('connection', (socket) => {
             }
         } else {
             try {
-                const response = await axios.post('https://snapverse-proj-api.onrender.com/api/routes/messages/', {
+                const response = await axios.post('https://snapverse-proj-api.onrender.com/api/messages/', {
                     conversationId: conversationId,
                     sender: senderId,
                     recipient: receiverId,
