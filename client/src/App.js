@@ -16,7 +16,7 @@ function App() {
   const [res, setRes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const url = "https://snapverse-proj-api.vercel.app/api/";
+  const url = "https://snapverse-proj-api.onrender.com/api/";
 
   useEffect(() => {
     
