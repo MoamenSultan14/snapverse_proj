@@ -352,6 +352,7 @@ mongoose.connect(process.env.MONGODB_URI)
         console.error("Error connecting to the database:", err);
     });
 
+
 // Socket.io logic
 const Message = require("./models/Message");
 
