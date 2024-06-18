@@ -176,8 +176,9 @@ app.use(express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 5000
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("Connected to the database");
-        server.listen(process.env.PORT || 8080, () => {
-            console.log("Server listening on port 8080");
+        const PORT = process.env.PORT || 8080;
+        server.listen(PORT, () => {
+            console.log(`Server listening on port ${PORT}`);
         });
     })
     .catch((err) => {
