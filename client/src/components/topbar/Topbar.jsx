@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './topbar.css'
 import { Link } from 'react-router-dom';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { AuthContext } from '../../context/AuthContext';
+import {useNavigate} from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function Topbar() {
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
     <div className='topbarContainer'>
       <div className="topbarWrapper">
@@ -13,8 +23,7 @@ function Topbar() {
           </Link>
         </div>
         <div className="topbarRight">
-          {/* <input className='topbarSearch' placeholder='Search'/> */}
-          <FavoriteBorderOutlinedIcon className='material-size md-36 topbarIcon'/>
+          <LogoutIcon className='material-size md-36 topbarIcon' onClick={handleLogout}/>
         </div>
       </div>
     </div>

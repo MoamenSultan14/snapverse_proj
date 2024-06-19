@@ -110,6 +110,7 @@
     }
     .userprofileTop {
         position: relative;
+        margin-bottom: 6.5rem;
       }
       .userprofileTopLeft{
         justify-content: start;
@@ -157,6 +158,12 @@
         display: flex;
         justify-content: center;
     }
+
+    .userprofilePosts{
+        margin-top: 1rem;
+        margin-bottom: 5rem;
+    }
+
     .userprofilePosts{
         grid-template-columns: 1fr;
     }

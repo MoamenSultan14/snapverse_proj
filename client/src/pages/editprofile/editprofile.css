@@ -153,3 +153,10 @@
         width: 0;
     }
 }
+
+@media only screen and (max-width: 767px ){
+    .editprofileRight > * {
+        width: 80%;
+    }
+    
+}
