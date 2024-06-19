@@ -43,7 +43,7 @@ export default function Register() {
               </div>
               <div className="signUpBoxBottom">
                 <button className="btn">Sign up</button>
-                <Link to="/login/" style={{textDecoration:"none", color: "inherit", width: "50%"}}>
+                <Link to="/login/" style={{textDecoration:"none", color: "inherit"}}>
                   <button className="btn loginBtn">Already have an acoount</button>
                 </Link>
               </div>
