@@ -1,79 +1,99 @@
 .signUpContaier{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lightgray;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(227, 226, 226);
 }
 .signUpWrapper{
-    display: flex;
-    height: 60%;
-    width: 30%;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 3px;
+  display: flex;
+  height: 35rem;
+  width: 28rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 3px;
 }
 
 .signUpLogo{
-    font-size: 3rem;
-    font-family: 'Lobster', sans-serif;
+  font-size: 3rem;
+  font-family: 'Lobster', sans-serif;
 }
 
 .signUpBox{
-  display: flex;
-  width: 80%;
-  flex-direction: column;
-  margin-top: 4rem;
+display: flex;
+width: 80%;
+flex-direction: column;
+margin-top: 4rem;
 }
 
 .signUpBoxTop{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 2rem;
+display: flex;
+flex-direction: column;
+width: 100%;
+margin-bottom: 2rem;
 }
 
 .signUpInput{
-  padding: 0.3rem;
-  margin: 0.5rem 0;
-  height: 1.5rem;
-  justify-content: space-around;
-  background-color: rgb(228, 227, 227);
-  border: 1px solid gray;
-  color: gray;
+padding: 0.3rem;
+margin: 0.5rem 0;
+height: 1.5rem;
+justify-content: space-around;
+background-color: rgb(228, 227, 227);
+border: 1px solid gray;
+color: gray;
 }
 
 .signUpInput:focus{
-  outline: none;
+outline: none;
 }
 
 .signUpBoxBottom{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
 }
 
 .btn{
-  width: 100%;
-  height: 2.2rem;
-  padding: 0.3rem 0;
-  margin: 0.5rem 0;
-  color: white;
-  background-color: lightskyblue;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+width: 100%;
+height: 2.2rem;
+padding: 0.3rem 0;
+margin: 0.5rem 0;
+color: white;
+background-color: lightskyblue;
+border: none;
+border-radius: 3px;
+cursor: pointer;
 }
 
 .loginBtn{
-  background-color: lightgreen;
+width: 10rem;
+background-color: lightgreen;
 }
 
 btn:disabled{
-  cursor: not-allowed;
+cursor: not-allowed;
+}
+
+@media only screen and (max-width: 450px){
+.signUpWrapper{
+  width: 100%;
+  height: 100%;
+}
+}
+
+@media only screen and (max-width: 264px){
+.loginBtn{
+  width: 100%;
+}
+}
+
+@media only screen and (max-height: 650px){
+.signUpWrapper{
+  height: auto;
+}
 }
 

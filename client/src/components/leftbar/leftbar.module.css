@@ -176,10 +176,10 @@
         width: 100%;
     }
     /* li's to delete */
-    .leftbarItemSearch{
+    .leftbarItemNotifications{
         display: none;
     }
-    .leftbarItemNotifications{
+    .leftbarItemExplore{
         display: none;
     }
     /* li's to delete */

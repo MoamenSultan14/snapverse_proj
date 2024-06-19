@@ -1,11 +1,20 @@
 .feedContainer{
     display: flex;
     height: 100vh;
-    justify-content: center;  
+    justify-content: center;
 }
 
 .feedWrapper{
     width: 100%;
+}
+
+@media only screen and (max-width: 767px ){
+
+    .feedContainer{
+        height: calc(100vh - 10rem);
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
 }
 
 

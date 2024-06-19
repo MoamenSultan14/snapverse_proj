@@ -13,8 +13,8 @@
 
 .commentsWrapper{
     display: flex;
-    width: 70%;
-    height: 95%;
+    width: 80rem;
+    height: 85rem;
     max-height: 670.700px;
     background-color: white;
 }
@@ -225,4 +225,53 @@
     visibility: visible;
 }
 
+
+@media only screen and (max-width: 1330px){
+    .commentsWrapper{
+        width: 60rem;
+    }
+}
+
+@media only screen and (max-width: 1030px){
+    .commentsWrapper{
+        width: 40rem;
+    }
+    .commentsLeft{
+        background-color: black;
+    }
+    .commentsUploadedPost{
+        object-fit: contain;
+    }
+}
+
+@media only screen and (max-width: 767px ){
+    .commentsWrapper{
+        width: 30rem;
+    }
+    .commentsRight{
+        width: 100%;
+    }
+    .commentsLeft{
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 700px ){
+    .commentsWrapper{
+        height: 30rem;
+    }
+}
+
+@media only screen and (max-width: 550px ){
+    .commentsWrapper{
+        height: 80%;
+        width: 22rem;
+    }
+}
+
+@media only screen and (max-width: 380px ){
+    .commentsWrapper{
+        width: 18rem;
+    }
+}
 

@@ -13,7 +13,7 @@ function Topbar() {
           </Link>
         </div>
         <div className="topbarRight">
-          <input className='topbarSearch' placeholder='Search'/>
+          {/* <input className='topbarSearch' placeholder='Search'/> */}
           <FavoriteBorderOutlinedIcon className='material-size md-36 topbarIcon'/>
         </div>
       </div>
