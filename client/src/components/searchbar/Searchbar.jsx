@@ -1,26 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import "./searchbar.css";
-// import axios from 'axios';
 import axiosInstance from '../../axiosInstance';
 import Searchresults from '../searchbar/Searchresults';
 import CircularProgress from '@mui/material/CircularProgress';
+import useDebounce from '../../hooks/useDebounce';
 
 const Searchbar = ({ onClose }) => {
     const [input, setInput] = useState("");
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
+    const debouncedInput = useDebounce(input, 300);
 
     const fetchData = async (value) => {
         try {
-            if (value.trim() !== "") {
-                setLoading(true);
-                const res = await axiosInstance.get("/users/all", {
-                    params: { username: value }
-                });
-                setResults(res.data);
-                setLoading(false);
-            }
+            setLoading(true);
+            const res = await axiosInstance.get("/users/all", {
+                params: { username: value }
+            });
+            setResults(res.data);
+            setLoading(false);
         } catch (e) {
             console.log(e);
             setLoading(false);
@@ -29,16 +28,18 @@ const Searchbar = ({ onClose }) => {
 
     const handleChange = (value) => {
         setInput(value);
-        if (value.trim() === "") {
-            setResults([]);
-        } else {
-            fetchData(value);
-        }
     };
 
+    useEffect(() => {
+        if (debouncedInput.trim() === "") {
+            setResults([]);
+        } else {
+            fetchData(debouncedInput);
+        }
+    }, [debouncedInput]);
+
     const handleWrapperClick = (e) => {
-        // Prevent the click event from propagating to the container
-        e.stopPropagation();
+        e.stopPropagation(); // Prevent click event from propagating to the container
     };
 
     return (
