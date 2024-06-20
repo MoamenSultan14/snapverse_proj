@@ -29,26 +29,6 @@ function Rightbar() {
 
   }, [user._id]);
 
-  // const handleClick = async (userId, index) => {
-  //   try {
-  //     // Optimistically update UI
-  //     const updatedSuggestions = [...suggestions];
-  //     updatedSuggestions[index].isFollowing = true; // Add a property to track following state
-  //     setSuggestions(updatedSuggestions);
-  
-  //     // Make request to follow user
-  //     const response = await axiosInstance.put(`/users/${userId}/follow`, { userId: user._id });
-  //     console.log(response.data);
-  
-  //     // If server responds successfully, update state
-  //     // Remove the followed user from suggestions
-  //     const newSuggestions = suggestions.filter((_, i) => i !== index);
-  //     setSuggestions(newSuggestions);
-  //   } catch (error) {
-  //     console.error('Error following user:', error);
-  //   }
-  // }
-
   const handleClick = async (userId, index) => {
     try {
       const updatedSuggestions = [...suggestions];
