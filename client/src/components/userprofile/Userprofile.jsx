@@ -1,61 +1,3 @@
-// import React, { useEffect, useState } from 'react'
-// import './userprofile.css'
-// import SettingsIcon from '@mui/icons-material/Settings';
-// import Profilestats from '../profilestats/Profilestats';
-// import axios from 'axios';
-// import { useParams } from 'react-router';
-
-// function Userprofile() {
-
-
-//   const [user,setUser] = useState({});
-//   const PF = process.env.REACT_APP_PUBLIC_FLDER;
-//   const username = useParams().username
-
-//   useEffect(()=>{
-//     const getUser = async () =>{
-//       const res = await axios.get(`/users?username=${username}`)
-//       setUser(res.data)
-//     }
-//     getUser()
-//   },[username])
-
-//   return (
-//     <div className='userprofileContainer'>
-//         <div className="userprofileTop">
-//             <div className="userprofileTopLeft">
-//               <img src={user.profileImg ? user.profileImg : (PF + "person/R.png")} alt="" className="userprofileImg" />
-//             </div>
-//             <div className="userprofileTopRight">
-//                 <div className="userprofileControlPanel">
-//                     <span className='userprofileUsername'>{user.username}</span>
-//                     <button className='userprofileEdit'>Edit profile</button>
-//                     <SettingsIcon className='userprofileSettingsIcon'/>
-//                 </div>
-//                 <div className="userprofileStats">
-//                     <span className='userprofilePostsCounter'><b>12</b> posts</span>
-//                     <span className='userprofileFollowersCounter'><b>{user.followers}</b> followers</span>
-//                     <span className='userprofileFollowingCounter'><b>{user.followings}</b> followings</span>
-//                 </div>
-//                 {/* <Profilestats/> */}
-//                 <span className='userprofileBio'>{user.desc}</span>
-//             </div>
-//         </div>
-//         <hr className='userprofileHr'/>
-//         <div className="userprofilePosts">
-//           <img src="/assets/bmw.png" alt="" className="userprofilePostImg" />
-//           <img src="/assets/bmw.png" alt="" className="userprofilePostImg" />
-//           <img src="/assets/bmw.png" alt="" className="userprofilePostImg" />
-//           <img src="/assets/bmw.png" alt="" className="userprofilePostImg" />
-
-//         </div>
-
-//     </div>
-//   )
-// }
-
-// export default Userprofile
-
 import React, { useContext, useEffect, useState } from 'react';
 import './userprofile.css';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -72,7 +14,6 @@ function Userprofile() {
   const PF = process.env.REACT_APP_PUBLIC_FLDER;
   const username = useParams().username;
   const {user:currUser,dispatch} = useContext(AuthContext)
-  // const [followed,setFollowed] = useState(currUser.followings.includes(user?._id))
   const [followed,setFollowed] = useState(false)
   const [loading, setLoading] = useState(true);
 

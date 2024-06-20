@@ -12,10 +12,8 @@ router.get("/all", async (req, res) => {
         let users;
         
         if (username) {
-            // If a username query parameter is provided, filter users by username
             users = await User.find({ username: { $regex: new RegExp(username, 'i') } });
         } else {
-            // Otherwise, fetch all users
             users = await User.find();
         }
 

@@ -35,12 +35,10 @@ function Rightbar() {
       updatedSuggestions[index].isFollowing = true;
       setSuggestions(updatedSuggestions);
   
-      // Make request to follow user
       const response = await axiosInstance.put(`/users/${userId}/follow`, { userId: user._id });
       console.log(response)
   
-      // Assuming the follow operation was successful
-      dispatch({ type: "FOLLOW", payload: userId }); // Update context state
+      dispatch({ type: "FOLLOW", payload: userId });
   
       // Remove followed user from suggestions
       const newSuggestions = suggestions.filter((_, i) => i !== index);

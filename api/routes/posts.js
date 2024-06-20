@@ -64,23 +64,6 @@ router.put("/:id/like", async (req,res) => {
     }
 });
 
-//get feed posts
-// router.get("/feed/:userId", async (req, res) => {
-//     try {
-//       const currentUser = await User.findById(req.params.userId);
-//       const userPosts = await Post.find({ userId: currentUser._id });
-//       const friendPosts = await Promise.all(
-//         currentUser.followings.map((friendId) => {
-//           return Post.find({ userId: friendId });
-//         })
-//       );
-//       res.status(200).json(userPosts.concat(...friendPosts));
-//     } catch (err) {
-//       console.log("asd")
-//       res.status(500).json(err);
-//     }
-// });
-
 // Find a post by ID
 router.get('/:postId', async (req, res) => {
   try {
@@ -150,12 +133,10 @@ router.get("/feed/:userId", async (req, res) => {
     // Find posts by the current user's friends
     const friendPosts = await Promise.all(
       currentUser.followings.map(async (friendId) => {
-        // Find posts by each friend and populate the 'comments' field with 'postedBy' user information
         const posts = await Post.find({ userId: friendId }).populate({
           path: 'comments.postedBy',
           model: 'User',
           select: 'username profileImg'
-
         });
         return posts;
       })
@@ -330,8 +311,6 @@ router.delete('/commentDelete/:postId/:commentId', async (req, res) => {
       res.status(500).send({ error: 'Internal server error' });
   }
 });
-
-
 
 
 module.exports = router;

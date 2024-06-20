@@ -56,7 +56,7 @@ const Searchchat = ({ onClose, currentUser, input, conversations, setConversatio
                 console.log('Conversation already exists:', existingConversation);
                 setCurrConversation(existingConversation);
             } else {
-                // Create a new conversation
+
                 const members = [currentUser._id, result._id];
                 const res = await axiosInstance.post('/conversations', { members });
     

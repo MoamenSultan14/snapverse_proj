@@ -5,8 +5,8 @@ const Searchchatres = ({ results, onClose, openConversation }) => {
     const PF = process.env.REACT_APP_PUBLIC_FLDER;
 
     const handleResultClick = (result) => {
-        openConversation(result); // Call the openConversation function passed down from Searchchat
-        onClose(); // Close the search results
+        openConversation(result);
+        onClose(); 
     };
 
     return (
