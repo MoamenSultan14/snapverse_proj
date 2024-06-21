@@ -12,6 +12,7 @@ import io from 'socket.io-client';
 import Searchchat from '../../components/searchchat/Searchchat';
 import Loadingline from '../../components/loadingline/Loadingline';
 import { Link } from 'react-router-dom';
+import useOutsideClick from '../../hooks/useOutsideClick';
 
 const Messenger = () => {
     const { user } = useContext(AuthContext);
@@ -24,10 +25,12 @@ const Messenger = () => {
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(true);
 
-
     const scrollRef = useRef();
     const socket = useRef();
-    const searchRef = useRef(); 
+
+    const searchRef = useOutsideClick(() => {
+        setShowSearch(false);
+    });
 
     const PF = process.env.REACT_APP_PUBLIC_FLDER;
 
@@ -53,17 +56,16 @@ const Messenger = () => {
         socket.current.emit("addUser", user._id);
     }, [user]);
 
-
     useEffect(() => {
         const getConversations = async () => {
             try {
-                setLoading(true)
+                setLoading(true);
                 const res = await axiosInstance.get('/conversations/' + user._id);
                 setConversations(res.data);
-                setLoading(false)
+                setLoading(false);
             } catch (e) {
                 console.log(e);
-                setLoading(false)
+                setLoading(false);
             }
         };
         getConversations();
@@ -84,19 +86,6 @@ const Messenger = () => {
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
-
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (searchRef.current && !searchRef.current.contains(event.target)) {
-                setShowSearch(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
 
     const handleSend = async (e) => {
         e.preventDefault();
@@ -122,7 +111,7 @@ const Messenger = () => {
 
     const handleConversationClick = (c) => {
         setCurrConversation(c);
-        setShowSearch(false); //
+        setShowSearch(false);
     };
 
     const handleInputChange = (value) => {
@@ -136,33 +125,32 @@ const Messenger = () => {
 
     return (
         <>
-            {loading && <Loadingline/>}
+            {loading && <Loadingline />}
             <Leftbar />
             <div className='messenger'>
                 <div className="chatMenu">
                     <div className="chatMenuWrapper">
                         <div className="chatMenuInputArea">
-                            <input 
-                                placeholder='Search for friends...' 
-                                className='chatMenuInput' 
+                            <input
+                                placeholder='Search for friends...'
+                                className='chatMenuInput'
                                 value={input}
                                 onChange={(e) => handleInputChange(e.target.value)}
                             />
                             {showSearch && (
                                 <div ref={searchRef}>
-                                    <Searchchat 
-                                        conversations={conversations} 
-                                        setConversations={setConversations} 
-                                        setCurrConversation={setCurrConversation} 
-                                        currentUser={user} 
-                                        input={input} 
-                                        setInput={setInput} 
-                                        onClose={() => setShowSearch(false)} 
+                                    <Searchchat
+                                        conversations={conversations}
+                                        setConversations={setConversations}
+                                        setCurrConversation={setCurrConversation}
+                                        currentUser={user}
+                                        input={input}
+                                        setInput={setInput}
+                                        onClose={() => setShowSearch(false)}
                                     />
                                 </div>
-                                
                             )}
-                        </div>     
+                        </div>
                         <span className="messengesTitle">Messages</span>
                         {conversations.map((c) => (
                             <div key={c._id} onClick={() => handleConversationClick(c)} className={currConversation?._id === c._id ? "activeConversation" : ""}>

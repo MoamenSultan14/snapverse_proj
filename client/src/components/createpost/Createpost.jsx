@@ -44,7 +44,7 @@ function Createpost({ onClose }) {
     }
 
     return (
-        <div className="popupContaier" onClick={onClose}>
+        <div className="popupContainer" onClick={onClose}>
             <div className="popupWrapper" onClick={handleWrapperClick}>
                 <div className="popupTop">
                     <span className="popupText">Create a post</span>
