@@ -31,6 +31,7 @@
     width: 45px;
     object-fit: cover;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 
