@@ -47,8 +47,7 @@ function Rightbar() {
       console.error('Error following user:', error);
     }
   }
-  
-  
+
 
   return (
     <div className='rightbarContainer'>
@@ -57,11 +56,15 @@ function Rightbar() {
         <ul className="rightbarSuggestingList">
             {suggestions.map((suggestedUser, index) => (
                 <li className="rightbarSuggesting" key={suggestedUser._id}>
-                    <img src={suggestedUser.profileImg ? suggestedUser.profileImg : (PF + "person/R.png")} alt={suggestedUser.username} className="suggestedImg" />
+                    <Link to={`/profile/${suggestedUser.username}`} style={{ textDecoration: "none", color: "inherit" }}>
+                      <img src={suggestedUser.profileImg ? suggestedUser.profileImg : (PF + "person/R.png")} alt={suggestedUser.username} className="suggestedImg" />
+                    </Link>
                     <div className="suggestedContent">
-                        <span className="suggestedUsername">
-                            {suggestedUser.username}
-                        </span>
+                        <Link to={`/profile/${suggestedUser.username}`} style={{ textDecoration: "none", color: "inherit" }}>
+                            <span className="suggestedUsername">
+                                {suggestedUser.username}
+                            </span>
+                        </Link>
                         <span className="suggestedInfo">
                             Suggested for you
                         </span>
